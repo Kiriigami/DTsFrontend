@@ -1,0 +1,39 @@
+<div class="dashboard-container">
+    <header>
+        <h1>{{ greeting }} {{ userData }}! Welcome to Your Dashboard </h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a (click)="onDelete()">Delete Account</a></li>
+            <li><a (click)="onGetData()">Get Details</a></li>
+            <li><a (click)="onLogout($event)">Log Out</a></li>
+             
+        </ul>
+    </nav>
+    <main>
+        <section class="dashboard-content">
+            <h2>This is your Dashboard</h2>
+            <p class="email-display">{{emailMessage}}</p>
+        </section>
+
+        <section id="update" class="dashboard-content">
+            <div class="update-user-container">
+                <h2 class="update-user-header">Update User</h2>
+                <form class="update-user-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="name" [(ngModel)]="updateObj.name" name="name" placeholder="Enter Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" [(ngModel)]="updateObj.email" name="email" placeholder="Enter Email" required>
+                    </div>
+
+                    <div *ngIf="errorMessage" class="error-message" >{{ errorMessage }}</div>
+                    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+                    <button type="submit" class="btn" (click)="onUpdate(userId)">Update</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</div>

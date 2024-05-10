@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="login-container">
+        <h2 class="login-header">User Login</h2>
+        <form class="login-form">
+            <div class="form-group">
+                <label for="Email">Email:</label>
+                <input type="Email" [(ngModel)]="loginObj.email" name="Email" placeholder="Enter Email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" [(ngModel)]="loginObj.password" name="password" placeholder="Enter Password" required>
+            </div>
+
+            <div *ngIf="errorMessage" class="error-message" >{{ errorMessage }}</div>
+            <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+            <button type="submit" class="btn" (click)="onLogin()" >Login</button>
+            <div class="account"> Click here to <a href="/signup" (click)="navigateToSignUp($event)" >Sign Up</a> </div>
+        </form>
+    </div>
+</div>

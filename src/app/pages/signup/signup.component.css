@@ -1,0 +1,81 @@
+ .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.login-container {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: blueviolet;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: blueviolet;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 90%;
+    padding: 8px;
+    border: 2px solid blueviolet;
+    border-radius: 3px;
+}
+
+button {
+    width: 50%;
+    padding: 10px;
+    align-self: center;
+    background-color: blueviolet;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(76, 26, 121);
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin: 10px;
+}
+
+.success-message{
+    color: green;
+    font-size: 14px;
+    margin: 10px;
+}
+
+.account {
+    margin: 10px;
+    font-weight: 400;
+}
