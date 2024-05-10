@@ -1,6 +1,8 @@
 # MyApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+## installation
+1. clone git repo
+2. run npm install
 
 ## Development server
 
