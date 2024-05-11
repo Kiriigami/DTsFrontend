@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { greetUser } from '../../../utils/utils';
+import { errorFormatter, greetUser } from '../../../utils/utils';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import {
   HttpClient,
@@ -63,15 +63,11 @@ export class LayoutComponent {
         },
         (error: HttpErrorResponse) => {
           if (error.error instanceof ErrorEvent) {
-            this.errorMessage = `An error occurred: ${error.error.message.replace(
-              /[^a-zA-Z0-9 ]/g,
-              ''
+            this.errorMessage = `An error occurred: ${errorFormatter(
+              error.error.message
             )}`;
           } else {
-            this.errorMessage = `${error.error.message.replace(
-              /[^a-zA-Z0-9 ]/g,
-              ''
-            )}`;
+            this.errorMessage = `${errorFormatter(error.error.message)}`;
           }
         }
       );
@@ -87,15 +83,11 @@ export class LayoutComponent {
       },
       (error: HttpErrorResponse) => {
         if (error.error instanceof ErrorEvent) {
-          this.errorMessage = `An error occurred: ${error.error.message.replace(
-            /[^a-zA-Z0-9 ]/g,
-            ''
+          this.errorMessage = `An error occurred: ${errorFormatter(
+            error.error.message
           )}`;
         } else {
-          this.errorMessage = `${error.error.message.replace(
-            /[^a-zA-Z0-9 ]/g,
-            ''
-          )}`;
+          this.errorMessage = `${errorFormatter(error.error.message)}`;
         }
       }
     );
@@ -112,12 +104,11 @@ export class LayoutComponent {
         },
         (error: HttpErrorResponse) => {
           if (error.error instanceof ErrorEvent) {
-            this.errorMessage = `An error occurred: ${error.error.message.replace(
-              /[^a-zA-Z0-9 ]/g,
-              ''
+            this.errorMessage = `An error occurred: ${errorFormatter(
+              error.error.message
             )}`;
           } else {
-            this.errorMessage = `${error.error.message}`;
+            this.errorMessage = `${errorFormatter(error.error.message)}`;
           }
         }
       );

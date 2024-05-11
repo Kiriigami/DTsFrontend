@@ -7,6 +7,7 @@ import {
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { errorFormatter } from '../../../utils/utils';
 
 @Component({
   selector: 'app-login',
@@ -44,15 +45,11 @@ export class LoginComponent {
         },
         (error: HttpErrorResponse) => {
           if (error.error instanceof ErrorEvent) {
-            this.errorMessage = `An error occurred: ${error.error.message.replace(
-              /[^a-zA-Z0-9 ]/g,
-              ''
+            this.errorMessage = `An error occurred: ${errorFormatter(
+              error.error.message
             )}`;
           } else {
-            this.errorMessage = `${error.error.message.replace(
-              /[^a-zA-Z0-9 ]/g,
-              ''
-            )}`;
+            this.errorMessage = `${errorFormatter(error.error.message)}`;
           }
         }
       );

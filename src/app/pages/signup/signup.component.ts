@@ -7,11 +7,12 @@ import {
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { errorFormatter } from '../../../utils/utils';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [FormsModule, HttpClientModule, CommonModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
 })
@@ -37,21 +38,16 @@ export class SignupComponent {
           if (res) {
             this.successMessage = 'Login successful!';
             localStorage.setItem('userToken', res.token);
-            // this.router.navigateByUrl('/dashboard');
             this.router.navigate(['/login']);
           }
         },
         (error: HttpErrorResponse) => {
           if (error.error instanceof ErrorEvent) {
-            this.errorMessage = `An error occurred: ${error.error.message.replace(
-              /[^a-zA-Z0-9 ]/g,
-              ''
+            this.errorMessage = `An error occurred: ${errorFormatter(
+              error.error.message
             )}`;
           } else {
-            this.errorMessage = `${error.error.message.replace(
-              /[^a-zA-Z0-9 ]/g,
-              ''
-            )}`;
+            this.errorMessage = `${errorFormatter(error.error.message)}`;
           }
         }
       );
